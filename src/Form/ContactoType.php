@@ -6,6 +6,7 @@ use App\Entity\Contacto;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ContactoType extends AbstractType
 {
@@ -19,6 +20,7 @@ class ContactoType extends AbstractType
             ->add('tipoVehiculo')
             ->add('vehiculo')
             ->add('preferenciaLlamada')
+            ->add('submit', SubmitType::class)
         ;
     }
 
