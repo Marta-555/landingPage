@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Contacto;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -15,10 +17,24 @@ class ContactoType extends AbstractType
         $builder
             ->add('nombre')
             ->add('apellidos')
-            ->add('telefono')
-            ->add('email')
-            ->add('tipoVehiculo')
-            ->add('vehiculo')
+            ->add('telefono', null, ['attr' => ['maxlength' => 9]])
+            ->add('email', EmailType::class)
+            ->add('tipoVehiculo', ChoiceType::class, [
+                'choices'  => [
+                    'Elige una opción' => '',
+                    'Turismo' => 'Turismo',
+                    'Todoterreno' => 'Todoterreno',
+                    'Comercial' => 'Comercial',
+                ],
+            ])
+            ->add('vehiculo', ChoiceType::class, [
+                'choices'  => [
+                    'Elige una opción' => '',
+                    'Astra' => 'Astra',
+                    'Corsa' => 'Corsa',
+                    'Mokka' => 'Mokka',
+                ],
+            ])
             ->add('preferenciaLlamada')
             ->add('submit', SubmitType::class)
         ;
