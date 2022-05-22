@@ -17,8 +17,9 @@ class ContactoType extends AbstractType
         $builder
             ->add('nombre')
             ->add('apellidos')
-            ->add('telefono', null, ['attr' => ['maxlength' => 9]])
             ->add('email', EmailType::class)
+            ->add('telefono')
+            ->add('preferenciaLlamada', ChoiceType::class)
             ->add('tipoVehiculo', ChoiceType::class, [
                 'choices'  => [
                     'Elige una opción' => '',
@@ -35,8 +36,8 @@ class ContactoType extends AbstractType
                     'Mokka' => 'Mokka',
                 ],
             ])
-            ->add('preferenciaLlamada')
-            ->add('submit', SubmitType::class)
+
+            ->add('enviar', SubmitType::class)
         ;
     }
 

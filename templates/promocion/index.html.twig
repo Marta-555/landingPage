@@ -2,31 +2,52 @@
 
 {% block title %}¡Creando landings!{% endblock %}
 
-{% block body %}
-
-<div class="container-fluid">
-    <div id="carouselControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="images/mokka.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/astra.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/corsa.jpg" alt="Third slide">
+{% block header %}
+    <header class="main-header">
+        <div class="background-overlay pt-5 pb-2 bg-dark">
+            <div class="container">
+                <div class="row d-flex h-100 px-1">
+                    <div class="col-12">
+                        <img src="images/mokka.jpg" class="img-fluid d-none d-sm-block">
+                    </div>
+                </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    {{ form(form) }}
-</div>
-
+    </header>
 {% endblock %}
+
+{% block form %}
+<section class="bg-dark pb-5">
+    <div class="container">
+        <div class="row bg-light mx-1">
+            <div class="container h-100">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-10 bg-white rounded m-5 p-5">
+                        <h3>Contacto</h3>
+                        <p>Rellene este formulario para informarse de nuestras mejores ofertas:</p>
+                        <div class="col-10 rounded mx-5 p-5">
+                            {{ form(form) }}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block footer %}
+  <footer>
+    <div class="container p-3">
+      <div class="row text-center text-white">
+        <div class="col ml-auto">
+          <p>Copyright &copy; 2022</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+{% endblock %}
+
+

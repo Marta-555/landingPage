@@ -1,24 +1,14 @@
-body{
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.main-header {
+    position: relative;
 }
 
-#carouselControls{
-    margin: 1%;
-}
-
-.carousel-inner > .carousel-item > img {
-    object-fit: scale-down;
-    height: 50vh;
+.background-overlay {
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
 }
 
-.carousel-control-prev{
-    padding-left: 10%;
-}
-
-.carousel-control-next{
-    padding-right: 10%;
+footer {
+    background: grey;
 }

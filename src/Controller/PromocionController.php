@@ -51,9 +51,6 @@ class PromocionController extends AbstractController
 
                 $mailer->send($email);
 
-                return $this->render('gracias/index.html.twig', [
-                    'nombre' => $form->get('nombre')->getData(),
-                ]);
                 return $this->redirectToRoute('gracias');
 
             } catch (TransportExceptionInterface $e) {
