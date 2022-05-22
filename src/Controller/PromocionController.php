@@ -39,20 +39,11 @@ class PromocionController extends AbstractController
             try {
                 $email = (new Email())
                     ->from('mrtgarciaortega@gmail.com')
-                    ->to(new Address('mrtgarciaortega@gmail.com'))
-                    ->subject('Promoción - Nuevo contacto')
+                    ->to(new Address($form->get('email')->getData()))
+                    ->subject('Promoción Opel - Gracias')
                     ->html(
-                        '<p>¡Hola!</p>
-                        <p>Hemos recibido un nuevo contacto a través del formulario:</p>
-                        <ul>
-                            <li>Nombre: <strong>'. $form->get('nombre')->getData() .'</strong></li>
-                            <li>Apellidos: <strong>'. $form->get('apellidos')->getData() .'</strong></li>
-                            <li>Teléfono: <strong>'. $form->get('telefono')->getData() .'</strong></li>
-                            <li>Email: <strong>'. $form->get('email')->getData() .'</strong></li>
-                            <li>Tipo de Vehículo: <strong>'. $form->get('tipoVehiculo')->getData() .'</strong></li>
-                            <li>Vehículo: <strong>'. $form->get('vehiculo')->getData() .'</strong></li>
-                            <li>Preferencia de llamada:<strong>'. $form->get('preferenciaLlamada')->getData() .'</strong></li>
-                        </ul>'
+                        '<p>¡Gracias por contarctar con nosotros!</p>
+                        <p>En breve nos pondremos en contacto con usted para proporcionarle la información solicitada</p>'
                     );
 
                 $transport = Transport::fromDsn($_ENV['MAILER_DSN']);
@@ -60,9 +51,10 @@ class PromocionController extends AbstractController
 
                 $mailer->send($email);
 
-                return $this->render('gracias/gracias.html.twig', [
+                return $this->render('gracias/index.html.twig', [
                     'nombre' => $form->get('nombre')->getData(),
                 ]);
+                return $this->redirectToRoute('gracias');
 
             } catch (TransportExceptionInterface $e) {
                 return new Response($e->getMessage());
