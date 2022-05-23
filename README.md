@@ -25,7 +25,7 @@ Instalación del proyecto
 
 6) Modificamos el archivo .env para configurar el envío de correos (línea 47):
 
-    - Cambiar deb_user, db_password y versión del servidor MySQL:
+    - Cambiar db_user, db_password y versión del servidor MySQL:
         DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/landingPage?serverVersion=5.7&charset=utf8mb4"
 
     - Añadir correo y contraseña desde donde enviaremos los email:
