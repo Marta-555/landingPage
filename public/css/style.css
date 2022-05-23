@@ -12,3 +12,18 @@
 footer {
     background: grey;
 }
+
+.main-header-gracias{
+    position: relative;
+    background: url(../images/gracias.jpeg);
+    background-size: cover;
+    min-height: 700px;
+}
+
+.background-over {
+    background: rgba(48, 51, 107,.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

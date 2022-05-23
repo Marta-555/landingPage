@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 
 class ContactoType extends AbstractType
 {
@@ -18,8 +19,20 @@ class ContactoType extends AbstractType
             ->add('nombre')
             ->add('apellidos')
             ->add('email', EmailType::class)
-            ->add('telefono')
-            ->add('preferenciaLlamada', ChoiceType::class)
+            ->add('telefono', TelType::class, [
+                'required' => false,
+                'attr' => ['maxlength' => 9],
+                'attr' => ['pattern' => '^[6|7|9]\\d{8}$'],
+            ])
+            ->add('preferenciaLlamada', ChoiceType::class, [
+                'required' => false,
+                'choices'  => [
+                    'Elige una opción' => '',
+                    'Mañana' => 'Mañana',
+                    'Tarde' => 'Tarde',
+                    'Noche' => 'Noche',
+                ],
+            ])
             ->add('tipoVehiculo', ChoiceType::class, [
                 'choices'  => [
                     'Elige una opción' => '',
@@ -36,7 +49,6 @@ class ContactoType extends AbstractType
                     'Mokka' => 'Mokka',
                 ],
             ])
-
             ->add('enviar', SubmitType::class)
         ;
     }

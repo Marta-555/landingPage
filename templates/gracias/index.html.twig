@@ -1,7 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}¡Creando landings!{% endblock %}
+{% block title %}¡Landing Page!{% endblock %}
 
-{% block body %}
-    ¡Gracias!
+{% block header %}
+    <header class="main-header-gracias">
+        <div class="background-over text-white py-5">
+            <div class="container">
+                <div class="row d-flex h-100">
+                    <div class="col-sm-10 text-center justify-content-center align-self-center">
+                        <h1>Gracias por su tiempo</h1>
+                        <p>Pronto nos pondremos en contacto con usted para proporcionarle la información solicitada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block footer %}
+  <footer>
+    <div class="container p-3">
+      <div class="row text-center text-white">
+        <div class="col ml-auto">
+          <p>Copyright &copy; 2022</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 {% endblock %}
