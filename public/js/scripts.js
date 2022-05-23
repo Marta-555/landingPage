@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    var btnEnviar = $('#contacto_enviar');
     $('#contacto_preferenciaLlamada option').hide();
     $('#contacto_vehiculo option').hide();
 
@@ -23,18 +24,17 @@ $(document).ready(function(){
         $('#contacto_preferenciaLlamada option').show();
     };
 
-    var btnEnviar = $('#contacto_enviar');
+   
     btnEnviar.on('click', function(){
-        btnEnviar.after('<div id="datos" class="d-flex justify-content-center"></div>');
-        btnEnviar.hide();
-        $('#datos').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
 
         $("form[name='contacto']").validate();
 
-
+        if($('.error').length != null){
+            btnEnviar.show();
+            
+        } else {
+            btnEnviar.hide(); 
+        }
     });
-
-
-
 
 })
